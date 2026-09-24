@@ -1,0 +1,190 @@
+{
+  "basics": {
+    "name": "Muhammad Sufyan",
+    "shortName": "MS",
+    "title": "BSCS Student & Aspiring Solution Architect",
+    "label": "BSCS Student",
+    "headline": "Full-time Computer Science student focused on mastering core programming logic, OOP, and system design on the path to becoming a Complete Solution Architect.",
+    "summary": "Driven Computer Science undergraduate based in Karachi, Pakistan. Deep passion for software design patterns, structured programming, and architectural thinking.",
+    "location": {
+      "city": "Karachi",
+      "region": "Sindh",
+      "country": "Pakistan",
+      "countryCode": "PK"
+    },
+    "email": "sufyanalignatra@gmail.com",
+    "availability": "Undergraduate at GU Tech (Class of 2026–2030) • Open to Internships & Collaborative Projects",
+    "status": "Active Student & Explorer",
+    "leadershipNote": "A team player and a born leader, recognized for high responsibility, structured thinking, and dedication by professors and peers.",
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "Muhammad Sufyan",
+        "url": "https://www.linkedin.com/in/muhammad-sufyan-623682299/",
+        "icon": "fa-brands fa-linkedin-in"
+      },
+      {
+        "network": "GitHub",
+        "username": "MuhammadSufyan-cyber",
+        "url": "https://github.com/MuhammadSufyan-cyber",
+        "icon": "fa-brands fa-github"
+      },
+      {
+        "network": "Email",
+        "username": "sufyanalignatra@gmail.com",
+        "url": "mailto:sufyanalignatra@gmail.com",
+        "icon": "fa-solid fa-envelope"
+      }
+    ]
+  },
+  "about": {
+    "intro": [
+      "My academic journey in Computer Science spans from O'Levels through Intermediate to my ongoing BSCS at GU Tech. Along the way, I built a solid foundation starting with C in Matric, advancing to C++ during Intermediate, and independently exploring modern Python.",
+      "My overarching ambition is to evolve into a full-scale Solution Architect — bridging low-level computation, object-oriented software engineering, clean databases, and distributed system architectures."
+    ],
+    "strengths": [
+      {
+        "title": "Object-Oriented Programming (OOP)",
+        "description": "Deep grasp of inheritance, polymorphism, encapsulation, abstraction, and clean architectural principles.",
+        "icon": "fa-solid fa-cubes"
+      },
+      {
+        "title": "Core Algorithmic Logic",
+        "description": "Translating real-world problems into structured computational logic, pseudocode, and optimized algorithms.",
+        "icon": "fa-solid fa-brain"
+      },
+      {
+        "title": "Database Architecture",
+        "description": "Designing relational schemas, ER diagrams, data normalization, and structured SQL queries.",
+        "icon": "fa-solid fa-database"
+      },
+      {
+        "title": "Continuous Technology Adaptability",
+        "description": "Rapidly assimilating new frameworks, programming languages, and industry standards.",
+        "icon": "fa-solid fa-bolt"
+      }
+    ],
+    "architecturePillars": [
+      {
+        "title": "Clean Modular Design",
+        "description": "Designing decoupled components with high cohesion and clear separation of concerns."
+      },
+      {
+        "title": "Performance & Scalability",
+        "description": "Selecting optimal data structures and computational approaches for resilient systems."
+      },
+      {
+        "title": "Security & Maintainability",
+        "description": "Writing self-documenting code with strong validation and maintainable structure."
+      }
+    ]
+  },
+  "education": [
+    {
+      "institution": "GU Tech",
+      "area": "Computer Science",
+      "studyType": "Bachelor of Science (BSCS)",
+      "startDate": "2026-01-01",
+      "endDate": "2030-12-01",
+      "status": "In Progress",
+      "badge": "Undergraduate Degree",
+      "detailsLabel": "Focus Areas",
+      "details": [
+        "Advanced Data Structures",
+        "Software Engineering",
+        "System Architecture",
+        "Theory of Automata"
+      ]
+    },
+    {
+      "institution": "Govt. National College",
+      "area": "Computer Science",
+      "studyType": "Intermediate (HSSC)",
+      "startDate": "2025-08-01",
+      "endDate": "2026-08-01",
+      "status": "Completed",
+      "badge": "Higher Secondary",
+      "detailsLabel": "Core Courses",
+      "details": [
+        "Object-Oriented Programming (C++)",
+        "Database Systems & SQL",
+        "Mathematics & Discrete Logic"
+      ]
+    },
+    {
+      "institution": "Orchard Grammar School",
+      "area": "Computer Science",
+      "studyType": "O'Levels / Matriculation",
+      "startDate": "2012-01-01",
+      "endDate": "2022-07-24",
+      "status": "Completed",
+      "badge": "Secondary Education",
+      "detailsLabel": "Foundations",
+      "details": [
+        "C Programming Basics",
+        "Computer Hardware & Architecture",
+        "Boolean Algebra & Logic Gates"
+      ]
+    }
+  ],
+  "skills": {
+    "languages": [
+      { "name": "Python", "level": "Advanced", "percent": 90, "icon": "fa-brands fa-python", "color": "#3776AB" },
+      { "name": "C++", "level": "Proficient", "percent": 85, "icon": "fa-solid fa-code", "color": "#00599C" },
+      { "name": "C", "level": "Strong Foundation", "percent": 80, "icon": "fa-solid fa-c", "color": "#A8B9CC" },
+      { "name": "SQL", "level": "Intermediate", "percent": 78, "icon": "fa-solid fa-database", "color": "#E38C00" },
+      { "name": "HTML5 / CSS3", "level": "Modern Web", "percent": 88, "icon": "fa-brands fa-html5", "color": "#E34F26" },
+      { "name": "JavaScript (ES6+)", "level": "Interactive Web", "percent": 75, "icon": "fa-brands fa-js", "color": "#F7DF1E" }
+    ],
+    "core": [
+      { "name": "Object-Oriented Programming (OOP)", "desc": "Encapsulation, Inheritance, Polymorphism, Abstraction" },
+      { "name": "Data Structures & Algorithms", "desc": "Arrays, Linked Lists, Trees, Stacks, Queues, Sorting & Searching" },
+      { "name": "Relational Database Design", "desc": "Schema design, Normalization (1NF to 3NF), Relational integrity" },
+      { "name": "Problem Solving & Logic", "desc": "Algorithmic thinking and breaking down complex challenges" },
+      { "name": "Solution Architecture Concepts", "desc": "Multi-tier design, modularity, API paradigms, cloud readiness" }
+    ],
+    "tools": [
+      { "name": "Git & GitHub", "icon": "fa-brands fa-github" },
+      { "name": "VS Code", "icon": "fa-solid fa-laptop-code" },
+      { "name": "Linux / Bash CLI", "icon": "fa-brands fa-linux" },
+      { "name": "MySQL / RDBMS", "icon": "fa-solid fa-server" }
+    ]
+  },
+  "projects": [
+    {
+      "title": "OOP Banking & Transaction System",
+      "category": "C++ / Systems",
+      "description": "Architected an Object-Oriented console management system demonstrating polymorphism, inheritance hierarchies, and secure data storage with file streams.",
+      "tags": ["C++", "OOP", "File Handling", "Design Patterns"],
+      "icon": "fa-solid fa-building-columns"
+    },
+    {
+      "title": "Relational Database Management Engine",
+      "category": "Database Systems / SQL",
+      "description": "Designed normalized relational schemas with full CRUD query workflows, transactional integrity, and data constraint validations.",
+      "tags": ["SQL", "RDBMS", "Data Normalization", "Schema Design"],
+      "icon": "fa-solid fa-database"
+    },
+    {
+      "title": "Algorithmic Problem-Solving Suite",
+      "category": "Python / Algorithms",
+      "description": "A collection of clean, well-tested Python solutions tackling classical data structures, graph traversals, and dynamic recursion patterns.",
+      "tags": ["Python", "Algorithms", "DSA", "Modular Code"],
+      "icon": "fa-brands fa-python"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Fluent / Professional",
+      "percent": 90,
+      "tag": "Working Proficiency"
+    },
+    {
+      "language": "Urdu",
+      "fluency": "Native",
+      "percent": 100,
+      "tag": "Mother Tongue"
+    }
+  ]
+}
