@@ -66,7 +66,11 @@
                 }
                 location.replace(next);
             } catch (err) {
-                error.textContent = err?.code === "auth/too-many-requests" ? "Too many attempts. Try again in a few minutes." : GENERIC;
+                const code = err?.code || "";
+                const credentialErrors = ["auth/invalid-credential", "auth/wrong-password", "auth/user-not-found", "auth/invalid-email", "auth/missing-password"];
+                if (err?.message === "not-admin" || credentialErrors.includes(code)) error.textContent = GENERIC;
+                else if (code === "auth/too-many-requests") error.textContent = "Too many attempts. Try again in a few minutes.";
+                else error.textContent = `Sign-in problem (${code || err?.message || "unknown"}). Check the Firebase setup.`;
                 submit.disabled = false;
                 submit.innerHTML = '<i class="fa-solid fa-lock"></i> Sign in';
             }
