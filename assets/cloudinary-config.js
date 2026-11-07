@@ -2,7 +2,7 @@
 // so don't publish the preset name anywhere else.
 export const cloudinaryConfig = {
   cloudName: "q1omtrrr",
-  uploadPreset: "REPLACE_ME",
+  uploadPreset: "sufyan-blog",
   folder: "blog",
 };
 
