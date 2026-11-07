@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cyber">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin login</title>
+    <link rel="icon" href="/avatar.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/assets/base.css">
+    <link rel="stylesheet" href="/assets/admin/admin.css">
+    <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('sufyan_portfolio_theme')||'cyber')}catch(e){}</script>
+</head>
+<body class="admin-page">
+    <div class="grid-overlay"></div>
+    <div class="login-wrap">
+        <form class="glass-card login-card" id="login-form" novalidate>
+            <div class="logo" style="margin-bottom: 18px;">
+                <img src="/avatar.jpg" alt="" class="logo-avatar">
+                <div class="logo-text">M<span>.</span>SUFYAN <span class="logo-badge">ADMIN</span></div>
+            </div>
+            <h1 class="admin-h1">Sign in</h1>
+            <p class="muted" style="margin-bottom: 20px;">Blog administration</p>
+            <div class="field"><label for="email">Email</label><input type="email" id="email" autocomplete="username" required></div>
+            <div class="field"><label for="password">Password</label><input type="password" id="password" autocomplete="current-password" required></div>
+            <button class="btn btn-primary" type="submit" id="submit" style="width: 100%;"><i class="fa-solid fa-lock"></i> Sign in</button>
+            <p class="form-error" id="error" role="alert"></p>
+        </form>
+    </div>
+
+    <script type="module">
+        import { getFirebase, currentUser, isAdminUser } from "/assets/admin/guard.js";
+
+        const form = document.getElementById("login-form");
+        const error = document.getElementById("error");
+        const submit = document.getElementById("submit");
+        const next = (() => {
+            const n = new URLSearchParams(location.search).get("next") || "/admin";
+            return n.startsWith("/admin") && !n.startsWith("//") ? n : "/admin";
+        })();
+        const GENERIC = "Invalid email or password.";
+
+        try {
+            if (isAdminUser(await currentUser())) location.replace(next);
+        } catch (err) {
+            if (err.message === "not-configured") {
+                error.textContent = "Firebase isn't configured yet (assets/firebase-config.js).";
+                submit.disabled = true;
+            }
+        }
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            error.textContent = "";
+            submit.disabled = true;
+            submit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Signing in…';
+            try {
+                const { auth, authMod } = await getFirebase();
+                const cred = await authMod.signInWithEmailAndPassword(auth, document.getElementById("email").value.trim(), document.getElementById("password").value);
+                if (!isAdminUser(cred.user)) {
+                    await authMod.signOut(auth);
+                    throw new Error("not-admin");
+                }
+                location.replace(next);
+            } catch (err) {
+                error.textContent = err?.code === "auth/too-many-requests" ? "Too many attempts. Try again in a few minutes." : GENERIC;
+                submit.disabled = false;
+                submit.innerHTML = '<i class="fa-solid fa-lock"></i> Sign in';
+            }
+        });
+    </script>
+</body>
+</html>

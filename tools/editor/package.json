@@ -1,0 +1,36 @@
+{
+  "name": "sufyan-blog-editor",
+  "private": true,
+  "description": "Builds assets/admin/editor-bundle.js (Tiptap) and assets/sanitize-bundle.js (DOMPurify).",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  },
+  "dependencies": {
+    "@tiptap/core": "2.27.3",
+    "@tiptap/pm": "2.27.3",
+    "@tiptap/starter-kit": "2.27.3",
+    "@tiptap/extension-underline": "2.27.3",
+    "@tiptap/extension-highlight": "2.27.3",
+    "@tiptap/extension-color": "2.27.3",
+    "@tiptap/extension-text-style": "2.27.3",
+    "@tiptap/extension-link": "2.27.3",
+    "@tiptap/extension-task-list": "2.27.3",
+    "@tiptap/extension-task-item": "2.27.3",
+    "@tiptap/extension-code-block-lowlight": "2.27.3",
+    "@tiptap/extension-table": "2.27.3",
+    "@tiptap/extension-table-row": "2.27.3",
+    "@tiptap/extension-table-header": "2.27.3",
+    "@tiptap/extension-table-cell": "2.27.3",
+    "@tiptap/extension-text-align": "2.27.3",
+    "@tiptap/extension-image": "2.27.3",
+    "@tiptap/extension-youtube": "2.27.3",
+    "@tiptap/extension-placeholder": "2.27.3",
+    "@tiptap/extension-character-count": "2.27.3",
+    "@tiptap/suggestion": "2.27.3",
+    "dompurify": "3.4.17",
+    "lowlight": "3.3.0"
+  }
+}

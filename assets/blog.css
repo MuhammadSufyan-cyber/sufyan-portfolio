@@ -1,0 +1,98 @@
+/* Blog layout: list page, post page, home "latest posts" strip.
+   Builds on base.css (design tokens shared with the portfolio). */
+
+@media (max-width: 992px) {
+    .nav-links { display: none; }
+    .mobile-toggle { display: flex; }
+}
+
+body.blog-page a { color: inherit; }
+body.blog-page .nav-links a.active { color: var(--text-main); }
+
+main.blog-main { padding: 150px 0 90px; position: relative; z-index: 1; min-height: 80vh; }
+
+/* ---------- Toolbar: search + tags ---------- */
+.blog-toolbar { display: flex; flex-direction: column; gap: 14px; align-items: center; margin-bottom: 36px; }
+.blog-search {
+    width: 100%; max-width: 460px; padding: 12px 18px 12px 44px; border-radius: var(--radius-full);
+    background: var(--bg-surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2394a3b8' viewBox='0 0 512 512'%3E%3Cpath d='M416 208c0 45.9-14.9 88.3-40 122.7l126.6 126.7a32 32 0 0 1-45.3 45.3L330.7 376A208 208 0 1 1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z'/%3E%3C/svg%3E") no-repeat 18px center;
+    border: 1px solid var(--card-border); color: var(--text-main); font-size: 0.95rem; outline: none;
+    transition: var(--transition-smooth);
+}
+.blog-search:focus { border-color: var(--primary); }
+.tag-filters { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.tag-filter {
+    padding: 6px 14px; border-radius: var(--radius-full); border: 1px solid var(--tag-border);
+    background: var(--tag-bg); color: var(--tag-text); font-size: 0.8rem; font-weight: 600; cursor: pointer;
+    font-family: var(--font-mono);
+}
+.tag-filter.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+/* ---------- Compact list rows ---------- */
+.post-list { display: flex; flex-direction: column; gap: 16px; max-width: 900px; margin: 0 auto; }
+.post-row {
+    display: grid; grid-template-columns: 180px 1fr; gap: 22px; padding: 16px;
+    text-decoration: none; color: var(--text-main); align-items: center;
+}
+.post-row-cover { aspect-ratio: 16 / 10; border-radius: var(--radius-md); overflow: hidden; background: rgba(var(--primary-rgb), 0.08); position: relative; z-index: 2; }
+.post-row-cover img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+.post-row:hover .post-row-cover img { transform: scale(1.05); }
+.cover-fallback {
+    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--primary);
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.2), rgba(var(--accent-rgb), 0.12));
+}
+.post-row-body { display: flex; flex-direction: column; gap: 6px; min-width: 0; position: relative; z-index: 2; }
+.post-meta { display: flex; gap: 14px; flex-wrap: wrap; color: var(--text-muted); font-size: 0.78rem; font-family: var(--font-mono); }
+.post-meta i { margin-right: 4px; }
+.post-row-title { font-family: var(--font-heading); font-size: 1.25rem; line-height: 1.3; }
+.post-row-excerpt {
+    color: var(--text-secondary); font-size: 0.93rem;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.post-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.post-tag {
+    font-size: 0.72rem; font-weight: 600; padding: 3px 10px; border-radius: var(--radius-full);
+    background: var(--tag-bg); color: var(--tag-text); border: 1px solid var(--tag-border); font-family: var(--font-mono);
+    text-decoration: none;
+}
+.load-more-wrap { text-align: center; margin-top: 30px; }
+
+/* ---------- States ---------- */
+.blog-state {
+    text-align: center; padding: 60px 24px; color: var(--text-secondary);
+    border: 1px dashed var(--card-border); border-radius: var(--radius-lg); max-width: 900px; margin: 0 auto;
+}
+.blog-state i { font-size: 2rem; color: var(--primary); margin-bottom: 12px; display: block; }
+.blog-state h1 { font-family: var(--font-heading); color: var(--text-main); font-size: 1.6rem; margin-bottom: 8px; }
+.skeleton { min-height: 140px; background: linear-gradient(90deg, var(--bg-surface) 25%, var(--bg-surface-hover) 50%, var(--bg-surface) 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; border-radius: var(--radius-lg); border: 1px solid var(--card-border); }
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+/* ---------- Single post ---------- */
+.article { max-width: 780px; margin: 0 auto; }
+.article-back { display: inline-flex; gap: 8px; align-items: center; color: var(--text-secondary); text-decoration: none; font-weight: 600; font-size: 0.9rem; margin-bottom: 24px; }
+.article-back:hover { color: var(--primary); }
+.article-cover { width: 100%; border-radius: var(--radius-lg); margin-bottom: 30px; border: 1px solid var(--card-border); display: block; }
+.article-title { font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 2.9rem); line-height: 1.15; letter-spacing: -0.02em; margin: 14px 0 16px; overflow-wrap: anywhere; }
+.article-header { margin-bottom: 34px; padding-bottom: 24px; border-bottom: 1px solid var(--card-border); }
+.share-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 50px; padding-top: 24px; border-top: 1px solid var(--card-border); align-items: center; }
+.share-row strong { margin-right: 4px; }
+
+/* ---------- Home page "latest posts" strip ---------- */
+.home-posts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.home-post { display: flex; flex-direction: column; text-decoration: none; color: var(--text-main); }
+.home-post .post-row-cover { border-radius: 0; aspect-ratio: 16 / 9; }
+.home-post .post-row-body { padding: 20px; }
+
+@media (max-width: 992px) { .home-posts { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) {
+    .post-row { grid-template-columns: 1fr; gap: 14px; }
+    .home-posts { grid-template-columns: 1fr; }
+    body.blog-page .logo-badge { display: none; }
+}
+@media (max-width: 480px) {
+    body.blog-page .container { padding: 0 16px; }
+    body.blog-page nav { padding: 0 12px; top: 12px; }
+    body.blog-page .nav-wrapper { padding: 8px 14px; }
+    main.blog-main { padding-top: 115px; }
+    body.blog-page .nav-actions { gap: 8px; }
+}

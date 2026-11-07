@@ -1,0 +1,23 @@
+rules_version = '2';
+
+// Paste into Firebase console → Firestore Database → Rules → Publish.
+// Keep the UID list in sync with ADMIN_UIDS in assets/admin/guard.js.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.uid in ['REPLACE_WITH_ADMIN_UID'];
+    }
+
+    match /posts/{postId} {
+      allow read: if resource.data.status == 'published' || isAdmin();
+      allow write: if isAdmin();
+    }
+
+    match /slugs/{slug} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+  }
+}

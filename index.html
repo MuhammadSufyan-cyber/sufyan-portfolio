@@ -2066,6 +2066,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="/assets/blog.css">
 </head>
 <body>
 
@@ -2091,6 +2092,7 @@
                 <li><a href="#education" class="nav-link">Education</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="/blog" class="nav-link">Blog</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
 
@@ -2137,6 +2139,7 @@
             <li><a href="#education" class="mob-link">Education</a></li>
             <li><a href="#skills" class="mob-link">Skills & Matrix</a></li>
             <li><a href="#projects" class="mob-link">Academic Projects</a></li>
+            <li><a href="/blog" class="mob-link">Blog</a></li>
             <li><a href="#contact" class="mob-link">Contact</a></li>
         </ul>
         <div style="display: flex; gap: 10px; margin-top: 8px;">
@@ -2534,6 +2537,22 @@
                     <!-- Populated dynamically via JS -->
                 </div>
 
+            </div>
+        </section>
+
+
+        <!-- LATEST BLOG POSTS (loaded from Firebase) -->
+        <section class="section-padding" id="blog" style="display: none;">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">From the Blog</span>
+                    <h2 class="section-title">Latest <span class="gradient-text">Writing</span></h2>
+                    <p class="section-subtitle">Notes on programming, OOP, databases and system design.</p>
+                </div>
+                <div class="home-posts" id="home-posts"></div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="/blog" class="btn btn-secondary">Read all posts <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
             </div>
         </section>
 
@@ -3492,6 +3511,22 @@
                 closeResumeModal();
             }
         });
+    </script>
+    <script type="module">
+        // "Latest posts" strip: the 3 newest published posts; stays hidden if there are none.
+        import { fetchPublishedPosts } from "/assets/blog-data.js";
+        import { postRow, initSpotlight } from "/assets/blog.js";
+        try {
+            const posts = (await fetchPublishedPosts()).slice(0, 3);
+            if (posts.length) {
+                const grid = document.getElementById("home-posts");
+                grid.innerHTML = posts.map((p) => postRow(p, { variant: "card" })).join("");
+                initSpotlight(grid);
+                document.getElementById("blog").style.display = "";
+            }
+        } catch (err) {
+            if (err.message !== "not-configured") console.error("Blog preview failed", err);
+        }
     </script>
 </body>
 </html>

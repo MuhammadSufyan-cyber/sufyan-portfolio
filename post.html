@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cyber">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Muhammad Sufyan</title>
+    <meta name="description" content="An article by Muhammad Sufyan.">
+    <link rel="icon" href="/avatar.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/assets/base.css">
+    <link rel="stylesheet" href="/assets/blog.css">
+    <link rel="stylesheet" href="/assets/prose.css">
+    <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('sufyan_portfolio_theme')||'cyber')}catch(e){}</script>
+</head>
+<body class="blog-page">
+    <div class="ambient-container">
+        <div class="ambient-orb orb-1"></div>
+        <div class="ambient-orb orb-2"></div>
+        <div class="ambient-orb orb-3"></div>
+    </div>
+    <div class="grid-overlay"></div>
+
+    <nav id="navbar">
+        <div class="nav-wrapper">
+            <a href="/" class="logo">
+                <img src="/avatar.jpg" alt="Muhammad Sufyan Avatar" class="logo-avatar">
+                <div class="logo-text">M<span>.</span>SUFYAN <span class="logo-badge">ARCHITECT</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/#about" class="nav-link">About</a></li>
+                <li><a href="/#skills" class="nav-link">Skills</a></li>
+                <li><a href="/#projects" class="nav-link">Projects</a></li>
+                <li><a href="/blog" class="nav-link active">Blog</a></li>
+                <li><a href="/#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="theme-switcher">
+                    <button class="theme-btn" id="theme-btn" title="Change Visual Theme" aria-label="Change Theme"><i class="fa-solid fa-palette"></i></button>
+                    <div class="theme-dropdown" id="theme-dropdown">
+                        <button class="theme-option" data-theme-val="cyber"><i class="fa-solid fa-bolt" style="color:#6366f1;"></i> Cyber Dark</button>
+                        <button class="theme-option" data-theme-val="ocean"><i class="fa-solid fa-water" style="color:#38bdf8;"></i> Midnight Ocean</button>
+                        <button class="theme-option" data-theme-val="light"><i class="fa-solid fa-sun" style="color:#f59e0b;"></i> Clean Modern</button>
+                    </div>
+                </div>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-drawer" id="mobile-drawer">
+        <ul class="mobile-links">
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#skills">Skills</a></li>
+            <li><a href="/#projects">Projects</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <main class="blog-main">
+        <div class="container">
+            <article class="article" id="article">
+                <a class="article-back" href="/blog"><i class="fa-solid fa-arrow-left"></i> All posts</a>
+                <div class="skeleton" style="min-height: 420px;"></div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <span style="color: var(--primary); font-weight: 800;">MS</span>
+                <span>Muhammad Sufyan</span>
+            </div>
+            <p class="footer-text">© <span id="current-year">2026</span> Muhammad Sufyan. Built with Modern Semantic HTML5, CSS Glassmorphism &amp; JavaScript.</p>
+            <a href="#" class="back-to-top" title="Back to top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+    </footer>
+
+    <script type="module" src="/assets/post.js"></script>
+</body>
+</html>

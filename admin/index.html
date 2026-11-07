@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cyber">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Blog dashboard</title>
+    <link rel="icon" href="/avatar.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/assets/base.css">
+    <link rel="stylesheet" href="/assets/admin/admin.css">
+    <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('sufyan_portfolio_theme')||'cyber')}catch(e){}</script>
+</head>
+<body class="admin-page">
+    <div class="grid-overlay"></div>
+    <header class="admin-bar">
+        <a href="/admin" class="logo">
+            <img src="/avatar.jpg" alt="" class="logo-avatar">
+            <div class="logo-text">M<span>.</span>SUFYAN <span class="logo-badge">ADMIN</span></div>
+        </a>
+        <div class="admin-bar-actions">
+            <a class="btn btn-outline btn-sm" href="/blog" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View blog</a>
+            <a class="btn btn-primary btn-sm" href="/admin/editor"><i class="fa-solid fa-plus"></i> New post</a>
+            <button class="btn btn-secondary btn-sm" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Log out</button>
+        </div>
+    </header>
+
+    <main class="admin-main" id="app" hidden>
+        <h1 class="admin-h1">Posts</h1>
+        <p class="muted" id="who"></p>
+
+        <div class="stats">
+            <div class="glass-card stat"><span class="muted">Total</span><b id="count-total">0</b></div>
+            <div class="glass-card stat"><span class="muted">Published</span><b id="count-published">0</b></div>
+            <div class="glass-card stat"><span class="muted">Drafts</span><b id="count-draft">0</b></div>
+        </div>
+
+        <div class="dash-tools">
+            <input type="search" class="input" id="search" placeholder="Search by title, tag or slug…" aria-label="Search posts">
+            <select class="select" id="status-filter" aria-label="Filter by status">
+                <option value="all">All statuses</option>
+                <option value="published">Published</option>
+                <option value="draft">Drafts</option>
+            </select>
+        </div>
+
+        <div class="dash-list" id="list"><p class="muted">Loading…</p></div>
+    </main>
+
+    <dialog class="admin-dialog" id="confirm-delete">
+        <h3>Delete post?</h3>
+        <p id="confirm-text"></p>
+        <div class="dialog-actions">
+            <button class="btn btn-secondary btn-sm" value="cancel" id="confirm-cancel">Cancel</button>
+            <button class="btn btn-danger btn-sm" id="confirm-ok"><i class="fa-solid fa-trash"></i> Delete</button>
+        </div>
+    </dialog>
+
+    <script type="module" src="/assets/admin/dashboard.js"></script>
+</body>
+</html>

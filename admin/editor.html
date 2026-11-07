@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cyber">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Editor · Blog admin</title>
+    <link rel="icon" href="/avatar.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/assets/base.css">
+    <link rel="stylesheet" href="/assets/blog.css">
+    <link rel="stylesheet" href="/assets/prose.css">
+    <link rel="stylesheet" href="/assets/admin/admin.css">
+    <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('sufyan_portfolio_theme')||'cyber')}catch(e){}</script>
+</head>
+<body class="admin-page">
+    <div class="grid-overlay"></div>
+    <header class="admin-bar">
+        <a href="/admin" class="logo">
+            <img src="/avatar.jpg" alt="" class="logo-avatar">
+            <div class="logo-text">M<span>.</span>SUFYAN <span class="logo-badge">EDITOR</span></div>
+        </a>
+        <div class="admin-bar-actions">
+            <span class="muted" id="save-state">Not saved yet</span>
+            <a class="btn btn-outline btn-sm" href="/admin"><i class="fa-solid fa-arrow-left"></i> Dashboard</a>
+            <button class="btn btn-secondary btn-sm" id="preview-btn" type="button"><i class="fa-solid fa-eye"></i> Preview</button>
+        </div>
+    </header>
+
+    <main class="admin-main" id="app" hidden>
+        <div class="editor-layout">
+            <section>
+                <input class="editor-title" id="title" placeholder="Post title" maxlength="160" aria-label="Title">
+                <div class="glass-card editor-card">
+                    <div class="toolbar" id="toolbar">
+                        <select class="tb-select" id="block-type" aria-label="Text style">
+                            <option value="p">Paragraph</option>
+                            <option value="1">Heading 1</option>
+                            <option value="2">Heading 2</option>
+                            <option value="3">Heading 3</option>
+                            <option value="4">Heading 4</option>
+                        </select>
+                        <span class="sep"></span>
+                        <button class="tb" data-cmd="bold" title="Bold (Ctrl+B)"><i class="fa-solid fa-bold"></i></button>
+                        <button class="tb" data-cmd="italic" title="Italic (Ctrl+I)"><i class="fa-solid fa-italic"></i></button>
+                        <button class="tb" data-cmd="underline" title="Underline (Ctrl+U)"><i class="fa-solid fa-underline"></i></button>
+                        <button class="tb" data-cmd="strike" title="Strikethrough"><i class="fa-solid fa-strikethrough"></i></button>
+                        <button class="tb" data-cmd="code" title="Inline code"><i class="fa-solid fa-code"></i></button>
+                        <button class="tb" data-cmd="highlight" title="Highlight"><i class="fa-solid fa-highlighter"></i></button>
+                        <input type="color" class="tb-color" id="text-color" title="Text colour" value="#6366f1">
+                        <button class="tb" data-cmd="unsetColor" title="Clear colour"><i class="fa-solid fa-droplet-slash"></i></button>
+                        <button class="tb" data-cmd="link" title="Link (Ctrl+K)"><i class="fa-solid fa-link"></i></button>
+                        <span class="sep"></span>
+                        <button class="tb" data-cmd="bulletList" title="Bullet list"><i class="fa-solid fa-list-ul"></i></button>
+                        <button class="tb" data-cmd="orderedList" title="Numbered list"><i class="fa-solid fa-list-ol"></i></button>
+                        <button class="tb" data-cmd="taskList" title="Task list"><i class="fa-solid fa-list-check"></i></button>
+                        <button class="tb" data-cmd="blockquote" title="Quote"><i class="fa-solid fa-quote-left"></i></button>
+                        <button class="tb" data-cmd="codeBlock" title="Code block"><i class="fa-solid fa-file-code"></i></button>
+                        <button class="tb" data-cmd="hr" title="Divider"><i class="fa-solid fa-minus"></i></button>
+                        <button class="tb" data-cmd="table" title="Insert table"><i class="fa-solid fa-table"></i></button>
+                        <span class="sep"></span>
+                        <button class="tb" data-cmd="alignLeft" title="Align left"><i class="fa-solid fa-align-left"></i></button>
+                        <button class="tb" data-cmd="alignCenter" title="Align centre"><i class="fa-solid fa-align-center"></i></button>
+                        <button class="tb" data-cmd="alignRight" title="Align right"><i class="fa-solid fa-align-right"></i></button>
+                        <span class="sep"></span>
+                        <button class="tb" data-cmd="image" title="Insert image"><i class="fa-regular fa-image"></i></button>
+                        <button class="tb" data-cmd="youtube" title="Embed YouTube video"><i class="fa-brands fa-youtube"></i></button>
+                        <span class="sep"></span>
+                        <button class="tb" data-cmd="undo" title="Undo (Ctrl+Z)"><i class="fa-solid fa-rotate-left"></i></button>
+                        <button class="tb" data-cmd="redo" title="Redo (Ctrl+Shift+Z)"><i class="fa-solid fa-rotate-right"></i></button>
+                    </div>
+                    <div class="table-tools" id="table-tools">
+                        <button class="tb" data-cmd="addRowAfter"><i class="fa-solid fa-plus"></i> Row</button>
+                        <button class="tb" data-cmd="addColumnAfter"><i class="fa-solid fa-plus"></i> Column</button>
+                        <button class="tb" data-cmd="deleteRow"><i class="fa-solid fa-minus"></i> Row</button>
+                        <button class="tb" data-cmd="deleteColumn"><i class="fa-solid fa-minus"></i> Column</button>
+                        <button class="tb" data-cmd="toggleHeaderRow">Header row</button>
+                        <button class="tb" data-cmd="deleteTable" style="color:#ef4444;"><i class="fa-solid fa-trash"></i> Table</button>
+                    </div>
+                    <div class="editor-content prose" id="editor"></div>
+                    <div class="editor-status">
+                        <span id="counts">0 words · 1 min read</span>
+                        <span id="upload-status"></span>
+                        <span>Type <b>/</b> for commands · Ctrl+S to save</span>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="side">
+                <div class="glass-card side-card">
+                    <h3>Status: <span class="badge-status draft" id="status-badge">Draft</span></h3>
+                    <div class="save-buttons" id="save-buttons"></div>
+                    <p class="hint" id="autosave-hint" style="margin-top:8px;">Drafts autosave every 20 seconds.</p>
+                    <p class="form-error" id="form-error"></p>
+                </div>
+
+                <div class="glass-card side-card">
+                    <h3>Cover photo</h3>
+                    <div class="cover-drop" id="cover-drop" tabindex="0" role="button" aria-label="Upload cover photo">
+                        <div id="cover-empty"><i class="fa-solid fa-cloud-arrow-up" style="font-size:1.5rem;display:block;margin-bottom:6px;"></i>Click or drop an image<br><span class="hint">JPG, PNG, WebP, GIF or AVIF · max 8 MB</span></div>
+                        <img id="cover-img" alt="" hidden>
+                    </div>
+                    <div class="progress" id="cover-progress"><div></div></div>
+                    <input type="file" id="cover-file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" hidden>
+                    <div class="field" style="margin-top:12px;">
+                        <label for="cover-alt">Alt text</label>
+                        <input type="text" id="cover-alt" maxlength="200" placeholder="Describe the image">
+                        <span class="hint">Required before publishing.</span>
+                    </div>
+                    <button class="btn btn-outline btn-sm" type="button" id="cover-remove" hidden>Remove cover</button>
+                </div>
+
+                <div class="glass-card side-card">
+                    <h3>Settings</h3>
+                    <div class="field">
+                        <label for="slug">URL slug</label>
+                        <input type="text" id="slug" maxlength="80">
+                        <span class="hint" id="slug-hint">/blog/</span>
+                    </div>
+                    <div class="field"><label for="excerpt">Excerpt</label><textarea id="excerpt" maxlength="300" placeholder="One or two sentences shown on the blog list."></textarea></div>
+                    <div class="field">
+                        <label for="tags">Tags</label>
+                        <input type="text" id="tags" placeholder="cpp, oop, databases">
+                        <span class="hint">Comma separated, saved in lowercase.</span>
+                    </div>
+                    <div class="field">
+                        <label for="publish-date">Publish date (optional)</label>
+                        <input type="datetime-local" id="publish-date">
+                        <span class="hint">Leave empty to use the moment you publish.</span>
+                    </div>
+                </div>
+
+                <div class="glass-card side-card">
+                    <h3>SEO</h3>
+                    <div class="field"><label for="seo-title">Meta title</label><input type="text" id="seo-title" maxlength="70" placeholder="Defaults to the post title"></div>
+                    <div class="field"><label for="seo-desc">Meta description</label><textarea id="seo-desc" maxlength="170" placeholder="Defaults to the excerpt"></textarea></div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <input type="file" id="inline-file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" hidden>
+
+    <dialog class="admin-dialog" id="ask-dialog">
+        <form method="dialog" id="ask-form">
+            <h3 id="ask-title"></h3>
+            <div class="field"><input type="text" id="ask-input" autocomplete="off"><span class="hint error" id="ask-error"></span></div>
+            <div class="dialog-actions">
+                <button class="btn btn-secondary btn-sm" value="cancel" formnovalidate>Cancel</button>
+                <button class="btn btn-primary btn-sm" value="ok" id="ask-ok">OK</button>
+            </div>
+        </form>
+    </dialog>
+
+    <div class="preview-overlay" id="preview">
+        <div class="preview-bar">
+            <strong>Preview</strong>
+            <button class="btn btn-secondary btn-sm" id="preview-close" type="button"><i class="fa-solid fa-xmark"></i> Close preview</button>
+        </div>
+        <div class="preview-body"><article class="article" id="preview-article"></article></div>
+    </div>
+
+    <script type="module" src="/assets/admin/editor.js"></script>
+</body>
+</html>
