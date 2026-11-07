@@ -4,7 +4,7 @@ import { firebaseConfig, FIREBASE_SDK, isFirebaseConfigured } from "../firebase-
 
 // Firebase console → Authentication → Users → copy the admin's "User UID".
 // Must match the list in firestore.rules.
-export const ADMIN_UIDS = ["ZlhOPUiDDzVQl6ZVXsDyPpxnbTH2"];
+export const ADMIN_UIDS = ["npniMBSKjJZzXzItVP4qk3Acf733"];
 
 let cached = null;
 

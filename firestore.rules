@@ -7,7 +7,7 @@ service cloud.firestore {
 
     function isAdmin() {
       return request.auth != null
-        && request.auth.uid in ['ZlhOPUiDDzVQl6ZVXsDyPpxnbTH2'];
+        && request.auth.uid in ['npniMBSKjJZzXzItVP4qk3Acf733'];
     }
 
     match /posts/{postId} {
