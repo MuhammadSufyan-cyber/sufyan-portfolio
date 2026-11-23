@@ -1498,11 +1498,80 @@
         }
 
         .project-card {
-            padding: 32px;
+            padding: 0 0 28px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            overflow: hidden;
         }
+
+        .project-card > .project-top,
+        .project-card > .project-tags,
+        .project-card > .project-links {
+            margin-left: 28px;
+            margin-right: 28px;
+        }
+
+        .project-thumb {
+            position: relative;
+            aspect-ratio: 16 / 10;
+            margin-bottom: 22px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.22), rgba(var(--primary-rgb), 0.04));
+            border-bottom: 1px solid rgba(var(--primary-rgb), 0.18);
+        }
+
+        .project-thumb-fallback {
+            font-size: 3.4rem;
+            color: var(--primary);
+            opacity: 0.55;
+        }
+
+        .project-thumb img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-thumb img { transform: scale(1.04); }
+
+        .project-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 22px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(var(--primary-rgb), 0.3);
+            color: inherit;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .project-link:hover { background: rgba(var(--primary-rgb), 0.14); transform: translateY(-1px); }
+
+        .project-link.primary {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+        }
+
+        .project-link.primary:hover { filter: brightness(1.1); background: var(--primary); }
 
         .project-top {
             margin-bottom: 24px;
@@ -2527,9 +2596,9 @@
                 
                 <div class="section-header" data-reveal>
                     <span class="section-tag">Applied Engineering</span>
-                    <h2 class="section-title">Academic & Systems <span class="gradient-text">Projects</span></h2>
+                    <h2 class="section-title">My <span class="gradient-text">Projects</span></h2>
                     <p class="section-subtitle">
-                        Practical implementations demonstrating OOP paradigms, relational database normalization, and algorithmic computation.
+                        Live web apps, platforms and systems I've built, plus academic work. Open any project to try it or browse the source code.
                     </p>
                 </div>
 
@@ -2927,24 +2996,108 @@
           },
           "projects": [
             {
+              "title": "AlSamad Estate CRM",
+              "category": "Full-Stack / Real Estate",
+              "description": "A lightweight dual-interface portal for office staff, consultants and the owner. Staff quickly log client requirements and leads, while the owner gets a full management view.",
+              "tags": [
+                "TypeScript",
+                "CRM",
+                "Dashboard",
+                "Vercel"
+              ],
+              "icon": "fa-solid fa-building",
+              "image": "assets/projects/alsamad-crm.png",
+              "live": "https://alsamadestatecrm.vercel.app",
+              "repo": "https://github.com/MuhammadSufyan-cyber/AlSamadEstate-crm"
+            },
+            {
+              "title": "BuildVendo",
+              "category": "AI / E-commerce Platform",
+              "description": "An online platform where anyone can launch a store in minutes. Describe your business in plain words and AI builds the products, look, checkout and a dashboard. Supports online transfer, bank transfer and cash on delivery.",
+              "tags": [
+                "JavaScript",
+                "AI",
+                "E-commerce",
+                "Dashboard"
+              ],
+              "icon": "fa-solid fa-store",
+              "live": "https://frontend-sufyan18.vercel.app",
+              "repo": "https://github.com/MuhammadSufyan-cyber/BuildVendo"
+            },
+            {
+              "title": "MindAnchor",
+              "category": "Digital Wellbeing App",
+              "description": "A digital-wellbeing app for students to reduce app overuse and mental strain, offering focus, rest and real support.",
+              "tags": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "Wellbeing"
+              ],
+              "icon": "fa-solid fa-anchor",
+              "image": "assets/projects/mindanchor.png",
+              "live": "https://mindanchor-mu.vercel.app",
+              "repo": "https://github.com/MuhammadSufyan-cyber/mindanchor"
+            },
+            {
+              "title": "GUTECH LMS Portal",
+              "category": "Full-Stack / EdTech",
+              "description": "A web-based Learning Management System for GUTECH where admins manage courses and content and students access their learning materials in one place.",
+              "tags": [
+                "TypeScript",
+                "LMS",
+                "Admin Panel",
+                "Web App"
+              ],
+              "icon": "fa-solid fa-graduation-cap",
+              "repo": "https://github.com/MuhammadSufyan-cyber/LMS-portal-of-GUTECH"
+            },
+            {
+              "title": "Modern Calculator",
+              "category": "Frontend / HTML & CSS",
+              "description": "A modern, clean calculator built with HTML and CSS.",
+              "tags": [
+                "HTML",
+                "CSS",
+                "JavaScript"
+              ],
+              "icon": "fa-solid fa-calculator",
+              "repo": "https://github.com/MuhammadSufyan-cyber/My-First-Calculator"
+            },
+            {
               "title": "OOP Banking & Transaction System",
               "category": "C++ / Systems",
               "description": "Architected an Object-Oriented console management system demonstrating polymorphism, inheritance hierarchies, and secure data storage with file streams.",
-              "tags": ["C++", "OOP", "File Handling", "Design Patterns"],
+              "tags": [
+                "C++",
+                "OOP",
+                "File Handling",
+                "Design Patterns"
+              ],
               "icon": "fa-solid fa-building-columns"
             },
             {
               "title": "Relational Database Management Engine",
               "category": "Database Systems / SQL",
               "description": "Designed normalized relational schemas with full CRUD query workflows, transactional integrity, and data constraint validations.",
-              "tags": ["SQL", "RDBMS", "Data Normalization", "Schema Design"],
+              "tags": [
+                "SQL",
+                "RDBMS",
+                "Data Normalization",
+                "Schema Design"
+              ],
               "icon": "fa-solid fa-database"
             },
             {
               "title": "Algorithmic Problem-Solving Suite",
               "category": "Python / Algorithms",
               "description": "A collection of clean, well-tested Python solutions tackling classical data structures, graph traversals, and dynamic recursion patterns.",
-              "tags": ["Python", "Algorithms", "DSA", "Modular Code"],
+              "tags": [
+                "Python",
+                "Algorithms",
+                "DSA",
+                "Modular Code"
+              ],
               "icon": "fa-brands fa-python"
             }
           ]
@@ -3117,7 +3270,21 @@
                             ? `<div class="project-tags">${proj.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}</div>`
                             : '';
 
+                        const thumbHtml = `
+                            <div class="project-thumb">
+                                <i class="${proj.icon || 'fa-solid fa-code'} project-thumb-fallback"></i>
+                                ${proj.image ? `<img src="${proj.image}" alt="${proj.title} screenshot" loading="lazy" onerror="this.remove()">` : ''}
+                            </div>`;
+
+                        const linksHtml = (proj.live || proj.repo)
+                            ? `<div class="project-links">
+                                ${proj.live ? `<a class="project-link primary" href="${proj.live}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>` : ''}
+                                ${proj.repo ? `<a class="project-link" href="${proj.repo}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> Source</a>` : ''}
+                               </div>`
+                            : '';
+
                         card.innerHTML = `
+                            ${thumbHtml}
                             <div class="project-top">
                                 <div class="project-badge-row">
                                     <span class="project-category">${proj.category || 'System Project'}</span>
@@ -3127,6 +3294,7 @@
                                 <p class="project-desc">${proj.description}</p>
                             </div>
                             ${tagsHtml}
+                            ${linksHtml}
                         `;
                         projectsContainer.appendChild(card);
                     });

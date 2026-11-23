@@ -129,47 +129,194 @@
   ],
   "skills": {
     "languages": [
-      { "name": "Python", "level": "Advanced", "percent": 90, "icon": "fa-brands fa-python", "color": "#3776AB" },
-      { "name": "C++", "level": "Proficient", "percent": 85, "icon": "fa-solid fa-code", "color": "#00599C" },
-      { "name": "C", "level": "Strong Foundation", "percent": 80, "icon": "fa-solid fa-c", "color": "#A8B9CC" },
-      { "name": "SQL", "level": "Intermediate", "percent": 78, "icon": "fa-solid fa-database", "color": "#E38C00" },
-      { "name": "HTML5 / CSS3", "level": "Modern Web", "percent": 88, "icon": "fa-brands fa-html5", "color": "#E34F26" },
-      { "name": "JavaScript (ES6+)", "level": "Interactive Web", "percent": 75, "icon": "fa-brands fa-js", "color": "#F7DF1E" }
+      {
+        "name": "Python",
+        "level": "Advanced",
+        "percent": 90,
+        "icon": "fa-brands fa-python",
+        "color": "#3776AB"
+      },
+      {
+        "name": "C++",
+        "level": "Proficient",
+        "percent": 85,
+        "icon": "fa-solid fa-code",
+        "color": "#00599C"
+      },
+      {
+        "name": "C",
+        "level": "Strong Foundation",
+        "percent": 80,
+        "icon": "fa-solid fa-c",
+        "color": "#A8B9CC"
+      },
+      {
+        "name": "SQL",
+        "level": "Intermediate",
+        "percent": 78,
+        "icon": "fa-solid fa-database",
+        "color": "#E38C00"
+      },
+      {
+        "name": "HTML5 / CSS3",
+        "level": "Modern Web",
+        "percent": 88,
+        "icon": "fa-brands fa-html5",
+        "color": "#E34F26"
+      },
+      {
+        "name": "JavaScript (ES6+)",
+        "level": "Interactive Web",
+        "percent": 75,
+        "icon": "fa-brands fa-js",
+        "color": "#F7DF1E"
+      }
     ],
     "core": [
-      { "name": "Object-Oriented Programming (OOP)", "desc": "Encapsulation, Inheritance, Polymorphism, Abstraction" },
-      { "name": "Data Structures & Algorithms", "desc": "Arrays, Linked Lists, Trees, Stacks, Queues, Sorting & Searching" },
-      { "name": "Relational Database Design", "desc": "Schema design, Normalization (1NF to 3NF), Relational integrity" },
-      { "name": "Problem Solving & Logic", "desc": "Algorithmic thinking and breaking down complex challenges" },
-      { "name": "Solution Architecture Concepts", "desc": "Multi-tier design, modularity, API paradigms, cloud readiness" }
+      {
+        "name": "Object-Oriented Programming (OOP)",
+        "desc": "Encapsulation, Inheritance, Polymorphism, Abstraction"
+      },
+      {
+        "name": "Data Structures & Algorithms",
+        "desc": "Arrays, Linked Lists, Trees, Stacks, Queues, Sorting & Searching"
+      },
+      {
+        "name": "Relational Database Design",
+        "desc": "Schema design, Normalization (1NF to 3NF), Relational integrity"
+      },
+      {
+        "name": "Problem Solving & Logic",
+        "desc": "Algorithmic thinking and breaking down complex challenges"
+      },
+      {
+        "name": "Solution Architecture Concepts",
+        "desc": "Multi-tier design, modularity, API paradigms, cloud readiness"
+      }
     ],
     "tools": [
-      { "name": "Git & GitHub", "icon": "fa-brands fa-github" },
-      { "name": "VS Code", "icon": "fa-solid fa-laptop-code" },
-      { "name": "Linux / Bash CLI", "icon": "fa-brands fa-linux" },
-      { "name": "MySQL / RDBMS", "icon": "fa-solid fa-server" }
+      {
+        "name": "Git & GitHub",
+        "icon": "fa-brands fa-github"
+      },
+      {
+        "name": "VS Code",
+        "icon": "fa-solid fa-laptop-code"
+      },
+      {
+        "name": "Linux / Bash CLI",
+        "icon": "fa-brands fa-linux"
+      },
+      {
+        "name": "MySQL / RDBMS",
+        "icon": "fa-solid fa-server"
+      }
     ]
   },
   "projects": [
     {
+      "title": "AlSamad Estate CRM",
+      "category": "Full-Stack / Real Estate",
+      "description": "A lightweight dual-interface portal for office staff, consultants and the owner. Staff quickly log client requirements and leads, while the owner gets a full management view.",
+      "tags": [
+        "TypeScript",
+        "CRM",
+        "Dashboard",
+        "Vercel"
+      ],
+      "icon": "fa-solid fa-building",
+      "image": "assets/projects/alsamad-crm.png",
+      "live": "https://alsamadestatecrm.vercel.app",
+      "repo": "https://github.com/MuhammadSufyan-cyber/AlSamadEstate-crm"
+    },
+    {
+      "title": "BuildVendo",
+      "category": "AI / E-commerce Platform",
+      "description": "An online platform where anyone can launch a store in minutes. Describe your business in plain words and AI builds the products, look, checkout and a dashboard. Supports online transfer, bank transfer and cash on delivery.",
+      "tags": [
+        "JavaScript",
+        "AI",
+        "E-commerce",
+        "Dashboard"
+      ],
+      "icon": "fa-solid fa-store",
+      "live": "https://frontend-sufyan18.vercel.app",
+      "repo": "https://github.com/MuhammadSufyan-cyber/BuildVendo"
+    },
+    {
+      "title": "MindAnchor",
+      "category": "Digital Wellbeing App",
+      "description": "A digital-wellbeing app for students to reduce app overuse and mental strain, offering focus, rest and real support.",
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Wellbeing"
+      ],
+      "icon": "fa-solid fa-anchor",
+      "image": "assets/projects/mindanchor.png",
+      "live": "https://mindanchor-mu.vercel.app",
+      "repo": "https://github.com/MuhammadSufyan-cyber/mindanchor"
+    },
+    {
+      "title": "GUTECH LMS Portal",
+      "category": "Full-Stack / EdTech",
+      "description": "A web-based Learning Management System for GUTECH where admins manage courses and content and students access their learning materials in one place.",
+      "tags": [
+        "TypeScript",
+        "LMS",
+        "Admin Panel",
+        "Web App"
+      ],
+      "icon": "fa-solid fa-graduation-cap",
+      "repo": "https://github.com/MuhammadSufyan-cyber/LMS-portal-of-GUTECH"
+    },
+    {
+      "title": "Modern Calculator",
+      "category": "Frontend / HTML & CSS",
+      "description": "A modern, clean calculator built with HTML and CSS.",
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "icon": "fa-solid fa-calculator",
+      "repo": "https://github.com/MuhammadSufyan-cyber/My-First-Calculator"
+    },
+    {
       "title": "OOP Banking & Transaction System",
       "category": "C++ / Systems",
       "description": "Architected an Object-Oriented console management system demonstrating polymorphism, inheritance hierarchies, and secure data storage with file streams.",
-      "tags": ["C++", "OOP", "File Handling", "Design Patterns"],
+      "tags": [
+        "C++",
+        "OOP",
+        "File Handling",
+        "Design Patterns"
+      ],
       "icon": "fa-solid fa-building-columns"
     },
     {
       "title": "Relational Database Management Engine",
       "category": "Database Systems / SQL",
       "description": "Designed normalized relational schemas with full CRUD query workflows, transactional integrity, and data constraint validations.",
-      "tags": ["SQL", "RDBMS", "Data Normalization", "Schema Design"],
+      "tags": [
+        "SQL",
+        "RDBMS",
+        "Data Normalization",
+        "Schema Design"
+      ],
       "icon": "fa-solid fa-database"
     },
     {
       "title": "Algorithmic Problem-Solving Suite",
       "category": "Python / Algorithms",
       "description": "A collection of clean, well-tested Python solutions tackling classical data structures, graph traversals, and dynamic recursion patterns.",
-      "tags": ["Python", "Algorithms", "DSA", "Modular Code"],
+      "tags": [
+        "Python",
+        "Algorithms",
+        "DSA",
+        "Modular Code"
+      ],
       "icon": "fa-brands fa-python"
     }
   ],
