@@ -240,6 +240,7 @@
         "Dashboard"
       ],
       "icon": "fa-solid fa-store",
+      "image": "assets/projects/buildvendo.png",
       "live": "https://frontend-sufyan18.vercel.app",
       "repo": "https://github.com/MuhammadSufyan-cyber/BuildVendo"
     },
