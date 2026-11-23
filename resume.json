@@ -269,6 +269,8 @@
         "Web App"
       ],
       "icon": "fa-solid fa-graduation-cap",
+      "image": "assets/projects/lms-gutech.png",
+      "live": "https://lms-portal-of-gutech.vercel.app/",
       "repo": "https://github.com/MuhammadSufyan-cyber/LMS-portal-of-GUTECH"
     },
     {
@@ -281,6 +283,7 @@
         "JavaScript"
       ],
       "icon": "fa-solid fa-calculator",
+      "image": "assets/projects/calculator.png",
       "repo": "https://github.com/MuhammadSufyan-cyber/My-First-Calculator"
     },
     {
