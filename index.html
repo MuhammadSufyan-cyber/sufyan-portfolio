@@ -3593,6 +3593,15 @@
             }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
             document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+
+            // Also reveal cards added dynamically after load (projects, skills, blog posts)
+            new MutationObserver(mutations => {
+                mutations.forEach(m => m.addedNodes.forEach(node => {
+                    if (node.nodeType !== 1) return;
+                    if (node.hasAttribute('data-reveal')) observer.observe(node);
+                    node.querySelectorAll && node.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+                }));
+            }).observe(document.body, { childList: true, subtree: true });
         }
 
         // --- Toast Notification System ---
